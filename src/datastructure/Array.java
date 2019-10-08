@@ -18,6 +18,9 @@ public class Array<E>{
     // size - 判断数组内存储的元素数量
     private int size;
 
+//    // 特别定义 - 用于优先级队列
+//    private int maxIndex;
+
     // 自定义初始化容量
     public Array(int capacity){
         data = (E[]) new Object[capacity];
