@@ -10,7 +10,7 @@ import java.util.Iterator;
  * @author yejianbin
  * @version 1.0
  * @ClassName DepthFirstSearch
- * @Description 深度优先遍历 - 遍历所有的边
+ * @Description 深度优先遍历 - 遍历所有的边（可达性分析）
  *
  * 类似走迷宫思路｛
  *

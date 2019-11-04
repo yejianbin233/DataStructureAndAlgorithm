@@ -64,7 +64,7 @@ public class SegmentTree<E> {
     * 2. 通过当前节点的左右子节点的值来得出当前节点的目标值
     * */
     private void buildSegmentTree(int treeIndex,int l,int r){
-        // 递归基，当区间缩小为 1 时，就可以直接该区间内的区域目标值
+        // 递归基，当区间缩小为 1 时，就可以直接作为该区间内的区域目标值
         if (l == r) {
             // 注意 data[l] = data[r]
             tree[treeIndex] = data[l];
@@ -128,7 +128,8 @@ public class SegmentTree<E> {
         if (index < 0 || index >= data.length) {
             throw new IllegalArgumentException("index is illegal.");
         }
-        //TODO 为什么是 data.length-1 而不是 tree.length - 1???
+        // TODO 为什么是 data.length-1 而不是 tree.length - 1???
+        // 线段树的构建是以 data 的长度为基准构建的
         set(0,0,data.length-1,index,val);
     }
     /*
@@ -161,12 +162,10 @@ public class SegmentTree<E> {
         if (index < 0 || index >= data.length) {
             throw new IllegalArgumentException("index is illegal");
         }
-
         return data[index];
     }
 
     private int leftChild(int index){
-
         return index * 2 + 1;
     }
     private int rightChild(int index){

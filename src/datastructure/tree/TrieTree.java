@@ -89,4 +89,17 @@ public class TrieTree {
         trieTree.add(s);
         System.out.println(trieTree.contains(t));
     }
+
+    /*
+    *
+    * question
+    *
+    * 1. 前缀查找
+    *
+    * 2. leetcode 211 模式匹配
+    *
+    * 3. 字符串映射 - leetcode 677
+    *
+    * 4. Trie 删除操作
+    * */
 }

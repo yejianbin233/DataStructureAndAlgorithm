@@ -1,8 +1,6 @@
-package datastructure.graph;/**
+package datastructure.graph.directed;/**
  * Created by Administrator on 2019/10/24.
  */
-
-import datastructure.graph.handle.Search;
 
 import java.util.ArrayList;
 import java.util.Iterator;

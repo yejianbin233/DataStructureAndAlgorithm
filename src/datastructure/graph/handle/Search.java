@@ -58,7 +58,7 @@ public class Search {
             System.out.println();
         }
 
-        // 如果顶点 s 的连接顶点数与图中的顶点数与边的对应关系 g.V() - 1 不一样则说明不是连通图
+        // 如果顶点 s 的连接顶点数与图中的顶点数与边的对应关系 g.V() - 1 不一样则说明不是无环连通图
         if (search.count() != g.V() - 1) {
             System.out.println("Not ");
         } else {
