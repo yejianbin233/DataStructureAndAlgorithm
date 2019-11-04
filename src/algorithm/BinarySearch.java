@@ -1,6 +1,4 @@
-package algorithm;/**
- * Created by Administrator on 2019/11/4.
- */
+package algorithm;
 
 import java.util.Arrays;
 
@@ -11,6 +9,17 @@ import java.util.Arrays;
  * @Description 二分查找
  * @Date 2019/11/4 14:36
  **/
+/*
+*
+* 二分查找的思路：
+*
+* 1. 将有序数组的中点下标 array[mid] 与 key 比较，存在三种情况：
+*    1. array[mid] == key，找到目标元素，返回该数组中的该元素 array[mid]
+*    2. array[mid] > key，说明 key 应该去有序数组的左区间 [lo,mid) 查找
+*    3. array[mid] < key，说明 key 应该去有序数组的右区间 [mid+1,hi] 查找
+*
+* 2. 如果没有查找到对应的目标元素，则返回 -1
+* **/
 public class BinarySearch {
     // 需要传递一个有序的数组
     // 递归方式
