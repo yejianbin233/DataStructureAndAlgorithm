@@ -2,6 +2,8 @@ package datastructure.bag;/**
  * Created by Administrator on 2019/10/22.
  */
 
+import datastructure.queue.Queue;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -10,25 +12,47 @@ import java.util.List;
  * @author yejianbin
  * @version 1.0
  * @ClassName Bag
- * @Description 背包 - Bag
+ * @Description 背包 - Bag - 不支持从中删除元素的集合数据类型（无限添加，只进不出）
  * @Date 2019/10/22 10:13
  **/
 public class Bag<T> implements Iterable<T> {
-
-    // 链表的首节点
     private Node first;
+    private int size;
 
+    private class Node {
+        T val;
+        Node next;
+
+        public Node(T val, Node next) {
+            this.val = val;
+            this.next = next;
+        }
+    }
+
+    // 创建一个空的背包
+    public Bag() {
+        first = new Node(null, null);
+        size = 0;
+    }
+
+    // 添加一个元素
+    // 不做任何优化
     public void add(T t) {
-        Node oldFirst = first;
-        first = new Node(t, oldFirst);
+        Node curNode = first;
+        while (curNode.next != null) curNode = curNode.next;
+
+        curNode.next = new Node(t, null);
+        size++;
     }
 
+    // 判断背包是否为空
     public boolean isEmpty() {
-        return false;
+        return size == 0;
     }
 
+    // 背包中的元素的数量
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
@@ -36,18 +60,8 @@ public class Bag<T> implements Iterable<T> {
         return new ListIterator();
     }
 
-    private class Node<T> {
-        private T data;
-        private Node next;
-
-        public Node(T data, Node next) {
-            this.data = data;
-            this.next = next;
-        }
-    }
-
     private class ListIterator implements Iterator<T> {
-        private Node current = first;
+        private Node current = first.next;
 
         @Override
         public boolean hasNext() {
@@ -56,20 +70,23 @@ public class Bag<T> implements Iterable<T> {
 
         @Override
         public T next() {
-            T item = (T) current.data;
+            T t = current.val;
             current = current.next;
-            return item;
+            return t;
         }
     }
 
     public static void main(String[] args) {
-        Bag<Integer> b = new Bag<>();
-        for (int i = 0; i < 10; i++) {
-            b.add(i);
+        Bag<Integer> bag = new Bag<>();
+
+        for (int i = 0; i < 100; i++) {
+            bag.add(i);
         }
 
-        for (int x : b) {
-            System.out.println(x);
+        System.out.println(bag.size());
+
+        for (int i : bag) {
+            System.out.println(i);
         }
     }
 }
